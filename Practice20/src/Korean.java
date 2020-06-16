@@ -1,9 +1,9 @@
 import java.util.Scanner;
 
-//한국어 출력
-public class Korean implements Language {
+//64번: 논리적 완벽을 추구하라
+public class Korean implements Language { //한국어 출력
 
-	public Korean(Game com) {
+	Korean(Game com) {
 	}
 
 	@Override

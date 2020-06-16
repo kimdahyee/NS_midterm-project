@@ -1,7 +1,8 @@
-public interface Language {
-	public Game encode();
+//	24번: 클래스와 멤버들에 대한 접근성을 최소화하라
+interface Language {
+	Game encode();
 
-	public String decode(Game com);
+	String decode(Game com);
 
-	public String print(Score s);
+	String print(Score s);
 }
