@@ -8,6 +8,10 @@ import java.security.Key;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 
+//22번: 변수들의 영역 범위를 최소화 
+//37번: 부분 영역의 식별자들을 섀도잉하거나 차폐하지 말라
+//38번: 하나의 선언문에 하나의 변수 선언
+
 public class KeyHandler {
 
 	public void saveSecretKey(Key secretKey, String filename) {

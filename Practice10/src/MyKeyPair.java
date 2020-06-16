@@ -14,10 +14,14 @@ public class MyKeyPair extends KeyHandler {
 	private PrivateKey privateKey;
 	private PublicKey publicKey;
 
-	public static MyKeyPair getInstance(int keylength) throws NoSuchAlgorithmException, NoSuchProviderException {
+	public static MyKeyPair getInstance(int keylength) {
 		MyKeyPair rslt = new MyKeyPair();
 
-		rslt.keyGen = KeyPairGenerator.getInstance(keyAlgorithm);
+		try {
+			rslt.keyGen = KeyPairGenerator.getInstance(keyAlgorithm);
+		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
+		}
 		rslt.keyGen.initialize(keylength);
 
 		return rslt;
