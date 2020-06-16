@@ -11,17 +11,15 @@ public class Practice09 {
 	public static void main(String[] args) {
 		System.out.println("[Practice09] Digital Signature\n");
 
-		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
-
+		
 		// 발신자
 		System.out.println("- Sender");
 		System.out.print("Send data: ");
-		String data = scanner.nextLine();
-
-		// data 저장
-		byte[] b = data.getBytes();
-		DigitSign.saveFile(datafname, b);
+		
+		// 데이터 저장
+		byte[] data = scanner.nextLine().getBytes();
+		DigitSign.saveFile(datafname, data);
 
 		// key 생성
 		DigitSign.createAndSaveKeys();
@@ -42,6 +40,8 @@ public class Practice09 {
 			System.out.println("\n[Received Data]");
 			printData(datafname);
 		}
+		
+		scanner.close();
 	}
 
 	public static void printData(String fname) {
