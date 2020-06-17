@@ -8,7 +8,9 @@ import java.util.Scanner;
 // 64번: 논리적 완벽을 추구하라
 public class Practice20 {
 
-	private static Score[][] scoreBoard = { { Score.EQUAL, Score.LOSE, Score.WIN }, { Score.WIN, Score.EQUAL, Score.LOSE },
+	private static Score[][] scoreBoard = { 
+			{ Score.EQUAL, Score.LOSE, Score.WIN }, 
+			{ Score.WIN, Score.EQUAL, Score.LOSE },
 			{ Score.LOSE, Score.WIN, Score.EQUAL } };
 
 //	24번: 클래스와 멤버들에 대한 접근성을 최소화하라
@@ -46,8 +48,12 @@ public class Practice20 {
 		Language l;
 		if (ln == 1) {
 			l = new Korean(com);
-		} else {
+		} else if (ln == 2) {
 			l = new English(com);
+		} else {
+			System.out.println("1 혹은 2 중에서 선택해주세요!");
+			s.close();
+			return;
 		}
 		System.out.println(l.decode(com));
 		Game user = l.encode();
