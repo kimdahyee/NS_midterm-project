@@ -11,7 +11,7 @@ public class English implements Language { // 영어 출력
 		Scanner s = new Scanner(System.in);
 
 		System.out.print("You : ");
-		String input = s.next();
+		String input = s.next().toUpperCase();
 		s.close();
 
 		if (input.equals("SCISSORS")) {
