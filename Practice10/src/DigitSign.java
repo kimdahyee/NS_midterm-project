@@ -192,7 +192,7 @@ public class DigitSign {
 	}
 
 
-//	암호문 생성 메서드 : 원문, 전자서명, 발신자의 public key를 secret key로 암호화 하고 파일로 저장
+//	암호문 생성 메서드: 원문, 전자서명, 발신자의 public key를 secret key로 암호화 하고 파일로 저장
 	static void createEncryption(String dataFilename, String sigFilename, String publicFilename,
 			String secretFilename) {
 //		 createAndSaveKeys()에서 생성하여 직렬화로 저장한 secret key를 가져옴
@@ -210,7 +210,7 @@ public class DigitSign {
 	}
 
 	
-//	(암호문 + 전자봉투) 생성 메서드 : 암호문을 생성하는 createEncryption 메서드와 전자봉투를 생성하는 encryptEnvelope 메서드를 호출
+//	(암호문 + 전자봉투) 생성 메서드: 암호문을 생성하는 createEncryption 메서드와 전자봉투를 생성하는 encryptEnvelope 메서드를 호출
 	static void signWithEnvelope(String dataFilename, String sigFilename, String publicFilename,
 			String receiver_publicFilename, String secretFilename) {
 		createEncryption(dataFilename, sigFilename, publicFilename, secretFilename); // 암호문 생성
