@@ -110,7 +110,7 @@ public class DigitSign {
 
 	
 //	전자봉투 해체 메서드 수신자의 private key로 secret key를 복호화 -> secret key 반환
-	static Key decryptEnvelop(String envelopeFilename, String receiver_privateFilename) {
+	static Key decryptEnvelope(String envelopeFilename, String receiver_privateFilename) {
 		PrivateKey privateKey = myKeyPair.restorePrivateKey(receiver_privateFilename);
 		byte[] encryptedEnvelope = readFile(envelopeFilename);
 
@@ -223,7 +223,7 @@ public class DigitSign {
 			String envelope_publicFilename, String receiver_privateFilename, String envelopeFilename) {
 
 //	  1. 전자봉투를 'receiver의 privatekey'로 해체해 Secretkey획득
-		Key secretKey = decryptEnvelop(envelopeFilename, receiver_privateFilename); // 전자봉투를 해체
+		Key secretKey = decryptEnvelope(envelopeFilename, receiver_privateFilename); // 전자봉투를 해체
 
 //	  2. 저장된 암호문을 불러온다 
 		byte[] data = readFile(envelope_dataFilename);
