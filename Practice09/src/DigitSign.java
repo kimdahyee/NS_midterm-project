@@ -14,7 +14,7 @@ import java.security.SignatureException;
 // 37번: 부분 영역의 식별자들을 섀도잉하거나 차폐하지 말라
 // 38번: 하나의 선언문에 하나의 변수 선언
 // 62번: 가독성있고 일관된 주석 사용
-// 33번: ERR08-J : NullPointerException과 그 상위 예외들을 포착하지 말라
+// 33번: 일반적인 예외 타입 보다는 사용자-정의 예외를 사용하라 (ERR08-J : NullPointerException과 그 상위 예외들을 포착하지 말라)
 
 public class DigitSign {
    private static final String signAlgorithm = "SHA1withRSA";
@@ -25,7 +25,7 @@ public class DigitSign {
    static MyKeyPair myKeyPair;
 
    static void createAndSaveKeys() {
-//      (4번: myKeyPair 예외 처리)
+//    4번: 보안에 민감한 메서드들이 검증된 매개변수를 가지고 호출되도록 보장하라 
       try {
          myKeyPair = MyKeyPair.getInstance(1024);
          myKeyPair.createKeys();
@@ -58,7 +58,7 @@ public class DigitSign {
          e.printStackTrace();
       }
    }
-//   26번: 메소드 결과값에 대한 피드백
+//   26번: 메서드의 결과값에 대해 항상 피드백을 제공하라
    static boolean verify(String dataFilename, String sigFilename, String keyFilename) {
 
       boolean rslt = false;
@@ -101,7 +101,6 @@ public class DigitSign {
    }
 
 	public static void saveFile(String fname, byte[] data) {
-//		ERR08-J. Do not catch NullPointerException of any of its ancestors - > null 참조에 대한 명시적 검사 수행
 		if (data == null) {
 			return;
 		}

@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
-//64번: 논리적 완벽을 추구하라
-public class English implements Language { //영어 출력
+// 64번: 논리적 완벽을 추구하라
+public class English implements Language { // 영어 출력
 
 	public English(Game com) {
 	}

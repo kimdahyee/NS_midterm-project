@@ -10,7 +10,6 @@ import java.io.ObjectOutputStream;
 import java.security.InvalidKeyException;
 import java.security.Key;
 import java.security.NoSuchAlgorithmException;
-import java.security.NoSuchProviderException;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.security.Signature;
@@ -21,11 +20,12 @@ import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 
-// 22번: 변수들의 영역 범위를 최소화 
+// 22번: 변수들의 영역 범위를 최소화하라
 // 37번: 부분 영역의 식별자들을 섀도잉하거나 차폐하지 말라
-// 38번: 하나의 선언문에 하나의 변수 선언
-// 62번: 가독성있고 일관된 주석 사용
-// 33번: ERR08-J : NullPointerException과 그 상위 예외들을 포착하지 말라
+// 38번: 하나의 선언문에 두 개 이상의 변수를 선언하지 말라
+// 62번: 가독성 있고 일관된 주석을 사용하라
+// 64번: 논리적 완벽을 추구하라
+// 33번: 일반적인 예외 타입 보다는 사용자-정의 예외를 사용하라 (ERR08-J : NullPointerException과 그 상위 예외들을 포착하지 말라)
 
 public class DigitSign {
 	private static final String signAlgorithm = "SHA1withRSA";
@@ -62,7 +62,7 @@ public class DigitSign {
 
 //	 발신자와 수신자의 public/private key & secret key 생성
 	static void createAndSaveKeys() {
-//      (4번: myKeyPair 예외 처리)
+//      4번: 보안에 민감한 메서드들이 검증된 매개변수를 가지고 호출되도록 보장하라 
 		myKeyPair = MyKeyPair.getInstance(2048);
 		mySecretKey = new MySecretKey();
 
@@ -90,7 +90,7 @@ public class DigitSign {
 
 		byte[] serializedKey = serializeKey(secretKey);
 		
-//		4번
+//		4번: 보안에 민감한 메서드들이 검증된 매개변수를 가지고 호출되도록 보장하라 
 		if (serializedKey == null) {
 			throw new SecurityException("Missing serialized secret key");
 		}
@@ -313,7 +313,7 @@ public class DigitSign {
 	}
 
 	public static void saveFile(String fname, byte[] data) {
-//		ERR08-J. Do not catch NullPointerException of any of its ancestors - > null 참조에 대한 명시적 검사 수행
+//		33번: 일반적인 예외 타입 보다는 사용자-정의 예외를 사용하라 (ERR08-J : NullPointerException과 그 상위 예외들을 포착하지 말라)
 		if (data == null) {
 			return;
 		}

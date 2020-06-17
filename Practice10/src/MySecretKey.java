@@ -10,13 +10,14 @@ import javax.crypto.spec.SecretKeySpec;
 
 public class MySecretKey extends KeyHandler {
 	private static final String ALGO = "AES";
-	private static final byte[] keyValue = { 'T', 'h', 'e', 'B', 'e', 's', 't', 'S', 'e', 'c', 'r', 'e', 't', 'K', 'e', 'y' };
+	private static final byte[] keyValue = { 'T', 'h', 'e', 'B', 'e', 's', 't', 
+												'S', 'e', 'c', 'r', 'e', 't', 'K', 'e', 'y' };
 
 	public Key generateKey() {
 		return (new SecretKeySpec(keyValue, ALGO));
 	}
 
-//  33번: ERR08-J : NullPointerException과 그 상위 예외들을 포착하지 말라
+//  33번: 일반적인 예외 타입 보다는 사용자-정의 예외를 사용하라 (ERR08-J : NullPointerException과 그 상위 예외들을 포착하지 말라)
 	public byte[] encrypt(byte[] data, Key skey) {
 		byte[] encVal = null;
 		
@@ -38,7 +39,7 @@ public class MySecretKey extends KeyHandler {
 		return encVal;
 	}
 
-//  33번: ERR08-J : NullPointerException과 그 상위 예외들을 포착하지 말라	
+//  33번: 일반적인 예외 타입 보다는 사용자-정의 예외를 사용하라 (ERR08-J : NullPointerException과 그 상위 예외들을 포착하지 말라)	
 	public byte[] decrypt(byte[] encryptedData, Key skey) {
 		Cipher c = null;
 		byte[] decVal = null;

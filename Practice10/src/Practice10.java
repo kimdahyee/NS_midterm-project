@@ -12,7 +12,7 @@ public class Practice10 {
 		System.out.print("Send data: ");
 		
 //		data 저장
-//		13번
+//		13번: 해시 함수를 이용하여 패스워드를 저장하라
 		byte[] data = scanner.nextLine().getBytes();
 		DigitSign.saveFile(DigitSign.datafname, data);
 

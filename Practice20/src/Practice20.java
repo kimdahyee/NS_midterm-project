@@ -1,11 +1,11 @@
 import java.util.Random;
 import java.util.Scanner;
 
-//22번: 변수들의 영역 범위를 최소화 
-//37번: 부분 영역의 식별자들을 섀도잉하거나 차폐하지 말라
-//38번: 하나의 선언문에 하나의 변수 선언
-//62번: 가독성있고 일관된 주석 사용
-//64번: 논리적 완벽을 추구하라
+// 22번: 변수들의 영역 범위를 최소화하라
+// 37번: 부분 영역의 식별자들을 섀도잉하거나 차폐하지 말라
+// 38번: 하나의 선언문에 두 개 이상의 변수를 선언하지 말라
+// 62번: 가독성 있고 일관된 주석을 사용하라
+// 64번: 논리적 완벽을 추구하라
 public class Practice20 {
 
 	private static Score[][] scoreBoard = { { Score.EQUAL, Score.LOSE, Score.WIN }, { Score.WIN, Score.EQUAL, Score.LOSE },

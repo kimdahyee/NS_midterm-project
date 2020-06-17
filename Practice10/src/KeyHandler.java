@@ -8,9 +8,9 @@ import java.security.Key;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 
-//22번: 변수들의 영역 범위를 최소화 
-//37번: 부분 영역의 식별자들을 섀도잉하거나 차폐하지 말라
-//38번: 하나의 선언문에 하나의 변수 선언
+// 22번: 변수들의 영역 범위를 최소화하라
+// 37번: 부분 영역의 식별자들을 섀도잉하거나 차폐하지 말라
+// 38번: 하나의 선언문에 두 개 이상의 변수를 선언하지 말라
 
 public class KeyHandler {
 
